@@ -27,7 +27,7 @@
 
 import UIKit
 
-enum NVActivityIndicatorShape {
+public enum NVActivityIndicatorShape {
     case circle
     case circleSemi
     case ring
@@ -40,7 +40,7 @@ enum NVActivityIndicatorShape {
     case pacman
     case stroke
 
-    func layerWith(size: CGSize, color: UIColor) -> CALayer {
+    public func layerWith(size: CGSize, color: UIColor) -> CALayer {
         let layer: CAShapeLayer = CAShapeLayer()
         var path: UIBezierPath = UIBezierPath()
         let lineWidth: CGFloat = 2

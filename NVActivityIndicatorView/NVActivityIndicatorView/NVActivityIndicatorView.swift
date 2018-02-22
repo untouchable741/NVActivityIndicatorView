@@ -465,11 +465,11 @@ public final class NVActivityIndicatorView: UIView {
     /**
      Start animating.
      */
-    public final func startAnimating() {
+    public final func startAnimating(customDelegate: NVActivityIndicatorAnimationDelegate? = nil) {
         isHidden = false
         isAnimating = true
         layer.speed = 1
-        setUpAnimation()
+        setUpAnimation(customDelegate)
     }
 
     /**
@@ -498,8 +498,8 @@ public final class NVActivityIndicatorView: UIView {
 
     // MARK: Privates
 
-    private final func setUpAnimation() {
-        let animation: NVActivityIndicatorAnimationDelegate = type.animation()
+    private final func setUpAnimation(_ customDelegate: NVActivityIndicatorAnimationDelegate? = nil) {
+        let animation: NVActivityIndicatorAnimationDelegate = customDelegate != nil ? customDelegate! : type.animation()
         var animationRect = UIEdgeInsetsInsetRect(frame, UIEdgeInsetsMake(padding, padding, padding, padding))
         let minEdge = min(animationRect.width, animationRect.height)
 
