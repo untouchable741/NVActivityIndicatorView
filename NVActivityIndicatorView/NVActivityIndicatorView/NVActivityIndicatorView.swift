@@ -264,7 +264,12 @@ public enum NVActivityIndicatorType: Int {
      */
     case circleStrokeSpin
 
-    static let allTypes = (blank.rawValue ... circleStrokeSpin.rawValue).map { NVActivityIndicatorType(rawValue: $0)! }
+    /**
+     - returns: Instance of NVActivityIndicatorAnimationBotTyping
+     */
+    case botTyping
+    
+    static let allTypes = (blank.rawValue ... botTyping.rawValue).map { NVActivityIndicatorType(rawValue: $0)! }
 
     func animation() -> NVActivityIndicatorAnimationDelegate {
         switch self {
@@ -334,6 +339,8 @@ public enum NVActivityIndicatorType: Int {
             return NVActivityIndicatorAnimationAudioEqualizer()
         case .circleStrokeSpin:
             return NVActivityIndicatorAnimationCircleStrokeSpin()
+        case .botTyping:
+            return NVActivityIndicatorAnimationBotTyping()
         }
     }
 }
